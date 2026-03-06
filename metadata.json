@@ -1,0 +1,5 @@
+{
+  "name": "FlayZCode",
+  "description": "An advanced, AI-powered multi-language code editor with voice commands, real-time error detection, and live execution.",
+  "requestFramePermissions": ["microphone"]
+}
