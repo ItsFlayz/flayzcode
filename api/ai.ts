@@ -1,7 +1,6 @@
 export default async function handler(req, res) {
 
 const apiKey = process.env.GOOGLE_API_KEY;
-
 const { prompt } = req.body;
 
 const response = await fetch(
@@ -12,13 +11,17 @@ headers: {
 "Content-Type": "application/json"
 },
 body: JSON.stringify({
-contents:[{parts:[{text: prompt}]}]
+contents: [{ parts: [{ text: prompt }] }]
 })
 }
 );
 
 const data = await response.json();
 
-res.status(200).json(data);
+const text =
+data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+"No explanation was provided";
+
+res.status(200).json({ text });
 
 }
