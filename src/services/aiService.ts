@@ -7,7 +7,7 @@ export interface AIResponse {
 export const aiService = {
   async generate(prompt: string, language: string, context: string = ""): Promise<AIResponse> {
     try {
-      const res = await fetch("/api/ai/generate", {
+      const res = await fetch("/api/ai", { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt, language, context }),
@@ -25,7 +25,7 @@ export const aiService = {
 
   async fix(code: string, language: string): Promise<AIResponse> {
     try {
-      const res = await fetch("/api/ai/fix", {
+      const res = await fetch("/api/ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code, language }),
@@ -43,7 +43,7 @@ export const aiService = {
 
   async explain(code: string, language: string): Promise<AIResponse> {
     try {
-      const res = await fetch("/api/ai/explain", {
+      const res = await fetch("/api/ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code, language }),
@@ -61,7 +61,7 @@ export const aiService = {
 
   async optimize(code: string, language: string): Promise<AIResponse> {
     try {
-      const res = await fetch("/api/ai/optimize", {
+      const res = await fetch("/api/ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code, language }),
@@ -79,7 +79,7 @@ export const aiService = {
 
   async convert(code: string, fromLanguage: string, toLanguage: string): Promise<AIResponse> {
     try {
-      const res = await fetch("/api/ai/convert", {
+      const res = await fetch("/api/ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code, fromLanguage, toLanguage }),
