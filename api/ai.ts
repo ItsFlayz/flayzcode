@@ -2,7 +2,7 @@ export default async function handler(req, res) {
 
 const apiKey = process.env.GOOGLE_API_KEY;
 
-const prompt = req.body.prompt;
+const { prompt } = req.body;
 
 const response = await fetch(
 `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
@@ -12,7 +12,7 @@ headers: {
 "Content-Type": "application/json"
 },
 body: JSON.stringify({
-contents: [{parts: [{text: prompt}]}]
+contents:[{parts:[{text: prompt}]}]
 })
 }
 );
